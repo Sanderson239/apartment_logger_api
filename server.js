@@ -42,7 +42,7 @@ app.use((req, res, next) => {
 });
 
 // replace routes
-// const books = require('./routes/placeholder');
+// const placeholder = require('./routes/placeholder');
 // const favorites = require('./routes/favorites');
 // const token = require('./routes/token');
 // const users = require('./routes/users');

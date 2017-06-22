@@ -6,7 +6,7 @@ const assert = require('chai').assert;
 const { suite, test } = require('mocha');
 const knex = require('../knex');
 const { addDatabaseHooks } = require('./utils')
-suite('part1 migrations', addDatabaseHooks(() => {
+suite('apartment migrations', addDatabaseHooks(() => {
   test('apartments columns', (done) => {
     knex('apartments').columnInfo()
       .then((actual) => {
@@ -18,25 +18,95 @@ suite('part1 migrations', addDatabaseHooks(() => {
             defaultValue: 'nextval(\'apartments_id_seq\'::regclass)'
           },
 
-          title: {
+          name: {
             type: 'character varying',
             maxLength: 255,
             nullable: false,
             defaultValue: '\'\'::character varying'
           },
 
-          author: {
+          street: {
             type: 'character varying',
             maxLength: 255,
             nullable: false,
             defaultValue: '\'\'::character varying'
           },
 
-          genre: {
+          city: {
             type: 'character varying',
             maxLength: 255,
             nullable: false,
             defaultValue: '\'\'::character varying'
+          },
+
+          state: {
+            type: 'character varying',
+            maxLength: 255,
+            nullable: false,
+            defaultValue: '\'\'::character varying'
+          },
+
+          country: {
+            type: 'character varying',
+            maxLength: 255,
+            nullable: false,
+            defaultValue: '\'\'::character varying'
+          },
+
+          zip: {
+            type: 'character varying',
+            maxLength: 255,
+            nullable: false,
+            defaultValue: '\'\'::character varying'
+          },
+
+          latitude: {
+            type: 'character varying',
+            maxLength: 255,
+            nullable: false,
+            defaultValue: '\'\'::character varying'
+          },
+
+          longitude: {
+            type: 'character varying',
+            maxLength: 255,
+            nullable: false,
+            defaultValue: '\'\'::character varying'
+          },
+
+          // landlord_id: {
+          //   type: 'integer',
+          //   maxLength: null,
+          //   nullable: false,
+          //   defaultValue: null
+          // },
+
+          sqr_footage: {
+            type: 'integer',
+            maxLength: null,
+            nullable: false,
+            defaultValue: '0'
+          },
+
+          bedrooms: {
+            type: 'integer',
+            maxLength: null,
+            nullable: false,
+            defaultValue: '0'
+          },
+
+          bathrooms: {
+            type: 'integer',
+            maxLength: null,
+            nullable: false,
+            defaultValue: '0'
+          },
+
+          beds: {
+            type: 'integer',
+            maxLength: null,
+            nullable: false,
+            defaultValue: '0'
           },
 
           description: {
@@ -46,7 +116,7 @@ suite('part1 migrations', addDatabaseHooks(() => {
             defaultValue: '\'\'::text'
           },
 
-          cover_url: {
+          apt_url: {
             type: 'text',
             maxLength: null,
             nullable: false,
