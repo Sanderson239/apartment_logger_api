@@ -32,6 +32,13 @@ suite('users migrations', addDatabaseHooks(() => {
           defaultValue: '\'\'::character varying'
         },
 
+        username: {
+          type: 'character varying',
+          maxLength: 255,
+          nullable: false,
+          defaultValue: null
+        },
+
         user_email: {
           type: 'character varying',
           maxLength: 255,
