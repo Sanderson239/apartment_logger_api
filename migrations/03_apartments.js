@@ -2,8 +2,8 @@
 exports.up = function(knex, Promise) {
   // UP adds / creates tables / fields to the DB
   return knex.schema.createTable('apartments', (table) => {
-    table.increments('id').primary();
-    table.string('name').notNullable().defaultTo('');
+    table.increments('apartment_id').primary();
+    table.string('apartment_name').notNullable().defaultTo('');
     table.string('street').notNullable().defaultTo('');
     table.string('city').notNullable().defaultTo('');
     table.string('state').notNullable().defaultTo('');
@@ -17,7 +17,7 @@ exports.up = function(knex, Promise) {
     table.integer('bedrooms').notNullable().defaultTo(0);
     table.integer('bathrooms').notNullable().defaultTo(0);
     table.integer('beds').notNullable().defaultTo(0);
-    table.text('description').notNullable().defaultTo('');
+    table.text('apartment_description').notNullable().defaultTo('');
     table.text('apt_url').notNullable().defaultTo('');
     table.timestamps(true, true);
   })

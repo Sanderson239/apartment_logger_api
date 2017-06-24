@@ -6,8 +6,8 @@ exports.seed = function(knex, Promise) {
       // Inserts seed entries
       return knex('apartments').insert([
         {
-          id: 1,
-        name: 'home',
+        apartment_id: 1,
+        apartment_name: 'home',
         street: 'fsdafa',
         city: 'SF',
         state: 'CA',
@@ -20,14 +20,14 @@ exports.seed = function(knex, Promise) {
         bedrooms: 3213,
         bathrooms:986546,
         beds: 32132,
-        description: 'great place to live',
+        apartment_description: 'great place to live',
         apt_url: 'something.com',
         created_at: new Date('2017-05-14 12:23:00 UTC'),
         updated_at: new Date('2017-05-14 12:23:00 UTC'),
       },
       {
-        id: 2,
-      name: 'home',
+      apartment_id: 2,
+      apartment_name: 'home',
       street: 'fsdafa',
       city: 'SF',
       state: 'CA',
@@ -40,14 +40,14 @@ exports.seed = function(knex, Promise) {
       bedrooms: 3213,
       bathrooms:986546,
       beds: 32132,
-      description: 'great place to live',
+      apartment_description: 'great place to live',
       apt_url: 'something.com',
       created_at: new Date('2017-05-14 12:23:00 UTC'),
       updated_at: new Date('2017-05-14 12:23:00 UTC'),
     },
     {
-      id: 3,
-    name: 'home',
+    apartment_id: 3,
+    apartment_name: 'home',
     street: 'fsdafa',
     city: 'SF',
     state: 'CA',
@@ -60,7 +60,7 @@ exports.seed = function(knex, Promise) {
     bedrooms: 3213,
     bathrooms:986546,
     beds: 32132,
-    description: 'great place to live',
+    apartment_description: 'great place to live',
     apt_url: 'something.com',
     created_at: new Date('2017-05-14 12:23:00 UTC'),
     updated_at: new Date('2017-05-14 12:23:00 UTC'),
@@ -68,6 +68,6 @@ exports.seed = function(knex, Promise) {
       ]);
     })
     .then(function(){
-            return knex.raw(`SELECT setval('apartments_id_seq', (SELECT MAX(id) FROM apartments))`)
+            return knex.raw(`SELECT setval('apartments_apartment_id_seq', (SELECT MAX(apartment_id) FROM apartments))`)
         });
 };

@@ -11,14 +11,14 @@ suite('apartment migrations', addDatabaseHooks(() => {
     knex('apartments').columnInfo()
       .then((actual) => {
         const expected = {
-          id: {
+          apartment_id: {
             type: 'integer',
             maxLength: null,
             nullable: false,
-            defaultValue: 'nextval(\'apartments_id_seq\'::regclass)'
+            defaultValue: 'nextval(\'apartments_apartment_id_seq\'::regclass)'
           },
 
-          name: {
+          apartment_name: {
             type: 'character varying',
             maxLength: 255,
             nullable: false,
@@ -111,7 +111,7 @@ suite('apartment migrations', addDatabaseHooks(() => {
             defaultValue: '0'
           },
 
-          description: {
+          apartment_description: {
             type: 'text',
             maxLength: null,
             nullable: false,
