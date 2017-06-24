@@ -19,6 +19,13 @@ suite('part3 seeds', addDatabaseHooks(() => {
           phone_number: '111-111-1111',
           created_at: new Date('2016-06-29 14:26:16 UTC'),
           updated_at: new Date('2016-06-29 14:26:16 UTC')
+        }, {
+          landlord_id: 2,
+          landlord_name: 'Firstname Lastname',
+          landlord_email: 'landlord@mail.com',
+          phone_number: '111-111-1111',
+          created_at: new Date('2016-06-29 14:26:16 UTC'),
+          updated_at: new Date('2016-06-29 14:26:16 UTC')
         }];
 
         /* eslint-enable max-len */

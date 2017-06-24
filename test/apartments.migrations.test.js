@@ -76,12 +76,12 @@ suite('apartment migrations', addDatabaseHooks(() => {
             defaultValue: '\'\'::character varying'
           },
 
-          // landlord_id: {
-          //   type: 'integer',
-          //   maxLength: null,
-          //   nullable: false,
-          //   defaultValue: null
-          // },
+          landlord_id: {
+            type: 'integer',
+            maxLength: null,
+            nullable: false,
+            defaultValue: null
+          },
 
           sqr_footage: {
             type: 'integer',
