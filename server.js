@@ -52,7 +52,7 @@ app.use((req, res, next) => {
 // app.use(token);
 // app.use(users);
 
-app.use((_req, res) => {
+app.use((req, res) => {
   res.sendStatus(404);
 });
 

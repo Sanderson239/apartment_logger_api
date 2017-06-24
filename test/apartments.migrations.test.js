@@ -60,6 +60,8 @@ suite('apartment migrations', addDatabaseHooks(() => {
             defaultValue: '\'\'::character varying'
           },
 
+
+//maybe change these to type float integers
           latitude: {
             type: 'character varying',
             maxLength: 255,
