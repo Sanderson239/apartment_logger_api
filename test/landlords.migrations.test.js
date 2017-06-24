@@ -6,44 +6,30 @@ const assert = require('chai').assert;
 const { suite, test } = require('mocha');
 const knex = require('../knex');
 const { addDatabaseHooks } = require('./utils');
-suite('users migrations', addDatabaseHooks(() => {
-  test('users columns', (done) => {
-    knex('users').columnInfo()
+suite('landlords migrations', addDatabaseHooks(() => {
+  test('landlords columns', (done) => {
+    knex('landlords').columnInfo()
     .then((actual) => {
       const expected = {
-        user_id: {
+        landlord_id: {
           type: 'integer',
           maxLength: null,
           nullable: false,
-          defaultValue: 'nextval(\'users_user_id_seq\'::regclass)'
+          defaultValue: 'nextval(\'landlords_landlord_id_seq\'::regclass)'
         },
 
-        first_name: {
+        landlord_name: {
           type: 'character varying',
           maxLength: 255,
           nullable: false,
           defaultValue: '\'\'::character varying'
         },
 
-        last_name: {
+        landlord_email: {
           type: 'character varying',
           maxLength: 255,
           nullable: false,
           defaultValue: '\'\'::character varying'
-        },
-
-        user_email: {
-          type: 'character varying',
-          maxLength: 255,
-          nullable: false,
-          defaultValue: null
-        },
-
-        hashed_password: {
-          type: 'character',
-          maxLength: 60,
-          nullable: false,
-          defaultValue: null
         },
 
         created_at: {
