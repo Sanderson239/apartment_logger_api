@@ -35,4 +35,37 @@ router.get('/apartments/:id', (req, res) => {
     });
 });
 
+router.post('/apartments', (req, res) => {
+  const apt = req.body;
+
+  apartment.addApartment(apt)
+  .then(apt => {
+    res.setHeader('Content-Type', 'application/json')
+    return res.send(apt[0]);
+  })
+    .catch(err => {
+      res.sendStatus(500);
+    });
+});
+
+router.delete('/apartments/:id', (req, res) => {
+  const id = req.params.id;
+
+  if (isNaN(id)) {
+    return res.sendStatus(404);
+  }
+
+  apartment.deleteApartment(id)
+  .then(deletedApt => {
+    if (!deletedApt[0]) {
+        res.sendStatus(404);
+        return;
+      }
+    res.send(deletedApt);
+  })
+  .catch(err => {
+      res.status(500).send(err);
+  });
+});
+
 module.exports = router;

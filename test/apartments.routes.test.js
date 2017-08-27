@@ -106,6 +106,82 @@ suite('apartments routes', addDatabaseHooks(() => {
       updatedAt: '2017-05-14T12:23:00.000Z',
     }, done);
   });
+  test('POST /apartments', (done) => {
+    request(server)
+      .post('/apartments')
+      .set('Accept', 'application/json')
+      .send({
+      apartment_id: 4,
+      apartment_name: 'name',
+      street: 'street',
+      city: 'SF',
+      state: 'CA',
+      country: 'USA',
+      zip: '13212',
+      latitude: '321322',
+      longitude: '32132',
+      landlord_id: 1,
+      sqr_footage: 123211,
+      bedrooms: 32132,
+      bathrooms:9865464,
+      beds: 321321,
+      apartment_description: 'awesome',
+      apt_url: 'something.com',
+      created_at: new Date('2017-05-14 12:23:00 UTC'),
+      updated_at: new Date('2017-05-14 12:23:00 UTC'),
+    })
+    .expect('Content-Type', /json/)
+    .expect((res) => {
+      delete res.body.createdAt;
+      delete res.body.updatedAt;
+    })
+    .expect(200, {
+    apartmentId: 4,
+    apartmentName: 'name',
+    street: 'street',
+    city: 'SF',
+    state: 'CA',
+    country: 'USA',
+    zip: '13212',
+    latitude: '321322',
+    longitude: '32132',
+    landlordId: 1,
+    sqrFootage: 123211,
+    bedrooms: 32132,
+    bathrooms:9865464,
+    beds: 321321,
+    apartmentDescription: 'awesome',
+    aptUrl: 'something.com',
+  }, done);
+      /* eslint-enable max-len */
+  });
+
+  test('DELETE /apartments/:id', (done) => {
+    request(server)
+      .del('/apartments/1')
+      .set('Accept', 'application/json')
+      .expect('Content-Type', /json/)
+      .expect(200, [{
+      apartmentId: 1,
+      apartmentName: 'home',
+      street: 'fsdafa',
+      city: 'SF',
+      state: 'CA',
+      country: 'USA',
+      zip: '1321',
+      latitude: '32132',
+      longitude: '3213',
+      landlordId: 1,
+      sqrFootage: 12321,
+      bedrooms: 3213,
+      bathrooms:986546,
+      beds: 32132,
+      apartmentDescription: 'great place to live',
+      aptUrl: 'something.com',
+      createdAt: '2017-05-14T12:23:00.000Z',
+      updatedAt: '2017-05-14T12:23:00.000Z',
+    }], done);
+  });
   //
   // test('GET /coffee/:id that doesn\'t exist', (done) => {
   //   /* eslint-disable max-len */
@@ -116,32 +192,6 @@ suite('apartments routes', addDatabaseHooks(() => {
   //     .expect(404, 'Not Found', done);
   // });
   //
-  // test('POST /coffee', (done) => {
-  //   request(server)
-  //     .post('/coffee')
-  //     .set('Accept', 'application/json')
-  //     .send({
-  //       producer_id: 2,
-  //       name: 'The jittery beatle',
-  //       flavor_profile: 'caffeinated, salty, bitter',
-  //       varieties: '',
-  //       description: 'Don\'t drink this.'
-  //     })
-  //   .expect('Content-Type', /json/)
-  //   .expect((res) => {
-  //     delete res.body.createdAt;
-  //     delete res.body.updatedAt;
-  //   })
-  //   .expect(200, {
-  //     id: 5,
-  //     producerId: 2,
-  //     name: 'The jittery beatle',
-  //     flavorProfile: 'caffeinated, salty, bitter',
-  //     varieties: '',
-  //     description: 'Don\'t drink this.'
-  //   }, done);
-  //     /* eslint-enable max-len */
-  // });
   //
   // test('POST /coffee/:id', (done) => {
   //   request(server)
@@ -186,23 +236,7 @@ suite('apartments routes', addDatabaseHooks(() => {
   //     /* eslint-enable max-len */
   // });
   //
-  // test('DELETE /coffee/:id', (done) => {
-  //   request(server)
-  //     .del('/coffee/1')
-  //     .set('Accept', 'application/json')
-  //     .expect('Content-Type', /json/)
-  //     .expect(200, [{
-  //       id: 1,
-  //       name: 'Three Africas',
-  //       producerId: 1,
-  //       flavorProfile: 'Fruity, radiant, creamy',
-  //       varieties: 'Heirloom',
-  //       description: 'Lorem ipsum',
-  //       createdAt: '2017-06-23T14:56:16.000Z',
-  //       updatedAt: '2017-06-23T14:56:16.000Z'
-  //     }], done);
-  //
-  // });
+
   /* eslint-enable max-len */
 
 }));

@@ -18,14 +18,14 @@ class Apartments {
         return camelizeKeys(result);
       });
   }
-//
-//   addCoffee(coffee) {
-//     return knex('coffee')
-//       .insert(coffee,'*')
-//       .then((result) => {
-//         return camelizeKeys(result)
-//       });
-//   }
+
+  addApartment(apartment) {
+    return knex('apartments')
+      .insert(apartment,'*')
+      .then((result) => {
+        return camelizeKeys(result)
+      });
+  }
 //
 //   updateCoffee(coffee) {
 //     return knex('coffee')
@@ -41,15 +41,15 @@ class Apartments {
 //       });
 //   }
 //
-//   deleteCoffee(id) {
-//     return knex('coffee')
-//       .del()
-//       .where('id', id)
-//       .returning('*')
-//       .then((result) => {
-//         return camelizeKeys(result)
-//       });
-//   }
+  deleteApartment(apartment_id) {
+    return knex('apartments')
+      .del()
+      .where('apartment_id', apartment_id)
+      .returning('*')
+      .then((result) => {
+        return camelizeKeys(result)
+      });
+  }
 //
 //   // just used for checking that both coffee and region exist
 //   getCoffeeAndRegionIds(coffeeId, regionId) {
