@@ -3,7 +3,7 @@
 module.exports = {
   development: {
     client: 'pg',
-    connection: 'postgres://localhost/apartment_logger_dev'
+    connection: 'postgres://localhost/apartment_logger_api'
   },
 
   test: {
