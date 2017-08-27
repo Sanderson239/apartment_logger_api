@@ -21,6 +21,7 @@
     "jsonwebtoken": "^7.4.1",
     "knex": "^0.13.0",
     "morgan": "^1.8.2",
+    "node-fetch": "^1.7.2",
     "pg": "^6.2.4"
   },
   "devDependencies": {

@@ -106,6 +106,7 @@ suite('apartments routes', addDatabaseHooks(() => {
       updatedAt: '2017-05-14T12:23:00.000Z',
     }, done);
   });
+
   test('POST /apartments', (done) => {
     request(server)
       .post('/apartments')
@@ -113,13 +114,13 @@ suite('apartments routes', addDatabaseHooks(() => {
       .send({
       apartment_id: 4,
       apartment_name: 'name',
-      street: 'street',
-      city: 'SF',
+      street: '550 Battery Street',
+      city: 'San Francisco',
       state: 'CA',
       country: 'USA',
-      zip: '13212',
-      latitude: '321322',
-      longitude: '32132',
+      zip: '94111',
+      latitude: '',
+      longitude: '',
       landlord_id: 1,
       sqr_footage: 123211,
       bedrooms: 32132,
@@ -138,13 +139,13 @@ suite('apartments routes', addDatabaseHooks(() => {
     .expect(200, {
     apartmentId: 4,
     apartmentName: 'name',
-    street: 'street',
-    city: 'SF',
+    street: '550 Battery Street',
+    city: 'San Francisco',
     state: 'CA',
     country: 'USA',
-    zip: '13212',
-    latitude: '321322',
-    longitude: '32132',
+    zip: '94111',
+    latitude: '37.7963358',
+    longitude: '-122.4002339',
     landlordId: 1,
     sqrFootage: 123211,
     bedrooms: 32132,
