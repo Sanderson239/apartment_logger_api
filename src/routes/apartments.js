@@ -10,10 +10,10 @@ const Apartment = require('../controllers/apartments.js');
 
 const router = express.Router();
 
-const apartment = new Apartment();
+const apartments = new Apartment();
 
 router.get('/apartments', (req, res) => {
-  apartment.getApartment()
+  apartments.getApartment()
     .then(apartment => {
       res.send(apartment);
     })
@@ -24,9 +24,9 @@ router.get('/apartments', (req, res) => {
 
 router.get('/apartments/:id', (req, res) => {
   const id = req.params.id;
-  apartment.getApartmentById(id)
+  apartments.getApartmentById(id)
     .then(apt => {
-      if (!apt || apartment.length === 0) {
+      if (!apt || apt.length === 0) {
          res.sendStatus(404);
          return;
       }
@@ -53,7 +53,7 @@ router.post('/apartments', (req, res) => {
       apt.latitude = data.results[0].geometry.location.lat;
       apt.longitude = data.results[0].geometry.location.lng;
     }
-    apartment.addApartment(apt)
+    apartments.addApartment(apt)
     .then(apt => {
       res.setHeader('Content-Type', 'application/json')
       return res.send(apt[0]);
@@ -71,7 +71,7 @@ router.delete('/apartments/:id', (req, res) => {
     return res.sendStatus(404);
   }
 
-  apartment.deleteApartment(id)
+  apartments.deleteApartment(id)
   .then(deletedApt => {
     if (!deletedApt[0]) {
         res.sendStatus(404);
