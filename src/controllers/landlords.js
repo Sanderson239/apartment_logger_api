@@ -19,13 +19,13 @@ class Landlords {
       });
   }
 
-  // addLandlord(landlord) {
-  //   return knex('landlords')
-  //     .insert(landlord,'*')
-  //     .then((result) => {
-  //       return camelizeKeys(result)
-  //     });
-  // }
+  addLandlord(landlord) {
+    return knex('landlords')
+      .insert(landlord,'*')
+      .then((result) => {
+        return camelizeKeys(result)
+      });
+  }
 //
 //   updateCoffee(coffee) {
 //     return knex('coffee')

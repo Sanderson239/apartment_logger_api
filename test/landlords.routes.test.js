@@ -49,4 +49,30 @@ suite('landlords routes', addDatabaseHooks(() => {
         updatedAt: '2016-06-29T14:26:16.000Z'
       }, done);
   });
+
+  test('POST /landlords', (done) => {
+    request(server)
+      .post('/landlords')
+      .set('Accept', 'application/json')
+      .send({
+        landlord_id: 3,
+        landlord_name: 'some name',
+        landlord_email: 'somename@mail.com',
+        phone_number: '222-222-2222',
+        created_at: new Date('2016-06-29 14:26:16 UTC'),
+        updated_at: new Date('2016-06-29 14:26:16 UTC')
+      })
+    .expect('Content-Type', /json/)
+    .expect((res) => {
+      delete res.body.createdAt;
+      delete res.body.updatedAt;
+    })
+    .expect(200, {
+      landlordId: 3,
+      landlordName: 'some name',
+      landlordEmail: 'somename@mail.com',
+      phoneNumber: '222-222-2222',
+    }, done);
+      /* eslint-enable max-len */
+  });
 }));
