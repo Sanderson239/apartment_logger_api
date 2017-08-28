@@ -10,14 +10,14 @@ class Landlords {
       .then((result) => camelizeKeys(result));
   }
 
-  // getLandlordById(landlord_id) {
-  //   return knex('landlords')
-  //     .where('landlord_id', landlord_id)
-  //     .first()
-  //     .then((result) => {
-  //       return camelizeKeys(result);
-  //     });
-  // }
+  getLandlordById(landlord_id) {
+    return knex('landlords')
+      .where('landlord_id', landlord_id)
+      .first()
+      .then((result) => {
+        return camelizeKeys(result);
+      });
+  }
 
   // addLandlord(landlord) {
   //   return knex('landlords')

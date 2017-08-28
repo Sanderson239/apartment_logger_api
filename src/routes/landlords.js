@@ -21,4 +21,19 @@ router.get('/landlords', (req, res) => {
     });
 });
 
+router.get('/landlords/:id', (req, res) => {
+  const id = req.params.id;
+  landlord.getLandlordById(id)
+    .then(apt => {
+      if (!apt || landlord.length === 0) {
+         res.sendStatus(404);
+         return;
+      }
+      res.send(apt);
+    })
+    .catch(err => {
+      res.status(500).send(err);
+    });
+});
+
 module.exports = router;
