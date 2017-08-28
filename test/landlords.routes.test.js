@@ -75,4 +75,19 @@ suite('landlords routes', addDatabaseHooks(() => {
     }, done);
       /* eslint-enable max-len */
   });
+
+  test('DELETE /landlords/:id', (done) => {
+    request(server)
+      .del('/landlords/1')
+      .set('Accept', 'application/json')
+      .expect('Content-Type', /json/)
+      .expect(200, [{
+        landlordId: 1,
+        landlordName: 'Firstname Lastname',
+        landlordEmail: 'landlord@mail.com',
+        phoneNumber: '111-111-1111',
+        createdAt: '2016-06-29T14:26:16.000Z',
+        updatedAt: '2016-06-29T14:26:16.000Z'
+      }], done);
+  });
 }));

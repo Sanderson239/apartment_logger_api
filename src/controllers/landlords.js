@@ -41,15 +41,15 @@ class Landlords {
 //       });
 //   }
 //
-  // deleteLandlord(landlord_id) {
-  //   return knex('landlords')
-  //     .del()
-  //     .where('landlord_id', landlord_id)
-  //     .returning('*')
-  //     .then((result) => {
-  //       return camelizeKeys(result)
-  //     });
-  // }
+  deleteLandlord(landlord_id) {
+    return knex('landlords')
+      .del()
+      .where('landlord_id', landlord_id)
+      .returning('*')
+      .then((result) => {
+        return camelizeKeys(result)
+      });
+  }
 //
 //   // just used for checking that both coffee and region exist
 //   getCoffeeAndRegionIds(coffeeId, regionId) {

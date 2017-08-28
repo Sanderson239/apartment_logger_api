@@ -48,4 +48,24 @@ router.post('/landlords', (req, res) => {
     });
 });
 
+router.delete('/landlords/:id', (req, res) => {
+  const id = req.params.id;
+
+  if (isNaN(id)) {
+    return res.sendStatus(404);
+  }
+
+  landlords.deleteLandlord(id)
+  .then(deletedLandlord => {
+    if (!deletedLandlord[0]) {
+        res.sendStatus(404);
+        return;
+      }
+    res.send(deletedLandlord);
+  })
+  .catch(err => {
+      res.status(500).send(err);
+  });
+});
+
 module.exports = router;
