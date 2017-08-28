@@ -18,9 +18,12 @@ app.use(express.static(path.join('public')));
 
 
 const apartments = require('./src/routes/apartments');
+const landlords = require('./src/routes/landlords');
 
 
 app.use(apartments);
+app.use(landlords);
+
 
 app.use((req, res) => {
   res.sendStatus(404);
