@@ -34,6 +34,7 @@ suite('profiles migrations', addDatabaseHooks(() => {
 
         description: {
           type: 'character varying',
+          maxLength: 255,
           nullable: false,
           defaultValue: '\'\'::character varying'
         },
@@ -74,9 +75,10 @@ suite('profiles migrations', addDatabaseHooks(() => {
         },
 
         smoker: {
-          type: 'boolean',
+          type: 'character varying',
+          maxLength: 255,
           nullable: false,
-          defaultValue: false
+          defaultValue: '\'\'::character varying'
         },
 
         work_schedule: {
@@ -94,7 +96,10 @@ suite('profiles migrations', addDatabaseHooks(() => {
         },
 
         spoken_languages: {
-          type: 'json',
+          type: 'character varying',
+          maxLength: 255,
+          nullable: false,
+          defaultValue: '\'\'::character varying'
         },
 
         sex: {
@@ -105,10 +110,10 @@ suite('profiles migrations', addDatabaseHooks(() => {
         },
 
         age: {
-          type: 'integer',
-          maxLength: null,
+          type: 'character varying',
+          maxLength: 255,
           nullable: false,
-          defaultValue: null
+          defaultValue: '\'\'::character varying'
         },
 
         relationship_status: {
@@ -154,7 +159,10 @@ suite('profiles migrations', addDatabaseHooks(() => {
         },
 
         tags: {
-          type: 'json',
+          type: 'character varying',
+          maxLength: 255,
+          nullable: false,
+          defaultValue: '\'\'::character varying'
         },
 
         looking_for_new_room: {
@@ -172,10 +180,10 @@ suite('profiles migrations', addDatabaseHooks(() => {
         },
 
         preferred_age: {
-          type: 'integer',
-          maxLength: null,
+          type: 'character varying',
+          maxLength: 255,
           nullable: false,
-          defaultValue: null
+          defaultValue: '\'\'::character varying'
         },
 
         preferred_smoking: {
@@ -186,7 +194,10 @@ suite('profiles migrations', addDatabaseHooks(() => {
         },
 
         preferred_languages_spoken: {
-          type: 'json',
+          type: 'character varying',
+          maxLength: 255,
+          nullable: false,
+          defaultValue: '\'\'::character varying'
         },
 
         created_at: {
