@@ -7,7 +7,7 @@ const { suite, test } = require('mocha');
 const knex = require('../knex');
 const { addDatabaseHooks } = require('./utils')
 
-suite('part3 seeds', addDatabaseHooks(() => {
+suite('landlord seeds', addDatabaseHooks(() => {
   test('landlords rows', (done) => {
     knex('landlords').orderBy('landlord_id', 'ASC')
       .then((actual) => {
