@@ -64,6 +64,33 @@ router.post('/apartments', (req, res) => {
   });
 })
 
+router.post('/apartments/:id', (req, res) => {
+  const apt = req.body;
+
+  fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${apt.street}+${apt.city}+${apt.state}+${apt.country}&key=${gmsApiKey}`)
+  .then(response => {
+    return response.json()
+  })
+  .then(data => {
+    if ((data.results.length !== 1) && (!apt.latitude || !apt.longitude)) {
+      apt.latitude = null;
+      apt.longitude = null;
+    };
+    if ((!apt.latitude || !apt.longitude) && (apt.latitude !== null || apt.longitude !== null)) {
+      apt.latitude = data.results[0].geometry.location.lat;
+      apt.longitude = data.results[0].geometry.location.lng;
+    }
+    apartments.updateApartment(apt)
+    .then(apt => {
+      res.setHeader('Content-Type', 'application/json')
+      return res.send(apt[0]);
+    })
+    .catch(err => {
+      res.sendStatus(500);
+    });
+  });
+})
+
 router.delete('/apartments/:id', (req, res) => {
   const id = req.params.id;
 

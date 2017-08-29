@@ -26,21 +26,36 @@ class Apartments {
         return camelizeKeys(result)
       });
   }
-//
-//   updateCoffee(coffee) {
-//     return knex('coffee')
-//       .where('id', coffee.id)
-//       .update({
-//         producerId: coffee.producerId,
-//         name: coffee.name,
-//         flavorProfile: coffee.flavorProfile,
-//         varieties: coffee.varieties,
-//         description: coffee.description}, '*')
-//       .then((result) => {
-//         return camelizeKeys(result)
-//       });
-//   }
-//
+
+  updateApartment(apartment) {
+    const apartment_id = apartment.apartment_id;
+    return knex('apartments')
+      .where('apartment_id', apartment.apartment_id)
+      .update({
+      apartment_id: apartment.apartment_id,
+      apartment_name: apartment.apartment_name,
+      street: apartment.street,
+      city: apartment.city,
+      state: apartment.state,
+      country: apartment.country,
+      zip: apartment.zip,
+      latitude: apartment.latitude,
+      longitude: apartment.longitude,
+      landlord_id: apartment.landlord_id,
+      sqr_footage: apartment.sqr_footage,
+      bedrooms: apartment.bedrooms,
+      bathrooms: apartment.bathrooms,
+      beds: apartment.beds,
+      apartment_description: apartment.apartment_description,
+      apt_url: apartment.apt_url,
+      created_at: new Date('2017-05-14 12:23:00 UTC'),
+      updated_at: new Date('2017-05-14 12:23:00 UTC'),
+    }, '*')
+      .then((result) => {
+        return camelizeKeys(result)
+      });
+  }
+
   deleteApartment(apartment_id) {
     return knex('apartments')
       .del()
@@ -50,25 +65,9 @@ class Apartments {
         return camelizeKeys(result)
       });
   }
-//
-//   // just used for checking that both coffee and region exist
-//   getCoffeeAndRegionIds(coffeeId, regionId) {
-//     return knex.select('coffee.id as coffee_id','regions.id as region_id')
-//       .from('coffee').crossJoin('regions')
-//       .where('coffee.id', coffeeId).where('regions.id', regionId)
-//       .first()
-//       .then((result) => {
-//         console.log(result);
-//         return camelizeKeys(result);
-//       });
-//   }
-//
-//   // add a record to coffee_joins table
-//   addCoffeeAndRegionIds(ids) {
-//     return knex('coffee_regions')
-//       .insert(decamelizeKeys(ids), '*')
-//       .then((result) => camelizeKeys(result[0]));
-//   }
+
+
+
 }
 
 module.exports = Apartments;

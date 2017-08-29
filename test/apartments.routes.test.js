@@ -184,46 +184,69 @@ suite('apartments routes', addDatabaseHooks(() => {
     }], done);
   });
   //
-  // test('GET /coffee/:id that doesn\'t exist', (done) => {
+  // test('GET /apartment/:id that doesn\'t exist', (done) => {
   //   /* eslint-disable max-len */
   //   request(server)
-  //     .get('/coffee/1000')
+  //     .get('/apartment/1000')
   //     .set('Accept', 'application/json')
   //     .expect('Content-Type', /plain/)
   //     .expect(404, 'Not Found', done);
   // });
   //
   //
-  // test('POST /coffee/:id', (done) => {
-  //   request(server)
-  //     .post('/coffee/2')
-  //     .set('Accept', 'application/json')
-  //     .send({
-  //       producer_id: 2,
-  //       name: 'Ethiopia Bulga',
-  //       flavor_profile: 'Cotton Candy, Strawberry, Sugar, Tangerine',
-  //       varieties: 'Heirloom',
-  //       description: 'delicious',
-  //     })
-  //   .expect('Content-Type', /json/)
-  //   .expect((res) => {
-  //     delete res.body.createdAt;
-  //     delete res.body.updatedAt;
-  //   })
-  //   .expect(200, {
-  //     id: 2,
-  //     producerId: 2,
-  //     name: 'Ethiopia Bulga',
-  //     flavorProfile: 'Cotton Candy, Strawberry, Sugar, Tangerine',
-  //     varieties: 'Heirloom',
-  //     description: 'delicious',
-  //   }, done);
-  //     /* eslint-enable max-len */
-  // });
+  test('POST /apartments/:id', (done) => {
+    request(server)
+      .post('/apartments/1')
+      .set('Accept', 'application/json')
+      .send({
+      apartment_id: 1,
+      apartment_name: 'newHome',
+      street: '550 Battery Street',
+      city: 'SF',
+      state: 'CA',
+      country: 'USA',
+      zip: '94111',
+      latitude: '',
+      longitude: '',
+      landlord_id: 1,
+      sqr_footage: 12321,
+      bedrooms: 3213,
+      bathrooms:986546,
+      beds: 32132,
+      apartment_description: 'great place to live',
+      apt_url: 'something.com',
+      created_at: new Date('2017-05-14 12:23:00 UTC'),
+      updated_at: new Date('2017-05-14 12:23:00 UTC'),
+    })
+    .expect('Content-Type', /json/)
+    .expect((res) => {
+      delete res.body.createdAt;
+      delete res.body.updatedAt;
+    })
+    .expect(200, {
+    apartmentId: 1,
+    apartmentName: 'newHome',
+    street: '550 Battery Street',
+    city: 'SF',
+    state: 'CA',
+    country: 'USA',
+    zip: '94111',
+    latitude: '37.7963358',
+    longitude: '-122.4002339',
+    landlordId: 1,
+    sqrFootage: 12321,
+    bedrooms: 3213,
+    bathrooms:986546,
+    beds: 32132,
+    apartmentDescription: 'great place to live',
+    aptUrl: 'something.com',
+  }, done);
+      /* eslint-enable max-len */
+  });
   //
-  // test('POST /coffee/:id without name', (done) => {
+  // test('POST /apartment/:id without name', (done) => {
   //   request(server)
-  //     .post('/coffee/2')
+  //     .post('/apartment/2')
   //     .set('Accept', 'application/json')
   //     .send({
   //       producer_id: 2,
@@ -233,7 +256,7 @@ suite('apartments routes', addDatabaseHooks(() => {
   //       description: 'delicious',
   //     })
   //   .expect('Content-Type', /plain/)
-  //   .expect(400, 'Coffee name required', done);
+  //   .expect(400, 'Apartment name required', done);
   //     /* eslint-enable max-len */
   // });
   //
