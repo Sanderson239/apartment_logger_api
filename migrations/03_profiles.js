@@ -26,7 +26,7 @@ exports.up = function(knex, Promise) {
     table.string('preferred_sex').notNullable().defaultTo('');
     table.string('preferred_age').notNullable().defaultTo('');
     table.string('preferred_smoking').notNullable().defaultTo('');
-    table.string('preferred_languages_spoken').notNullable().defaultTo('');;
+    table.string('preferred_languages_spoken').notNullable().defaultTo('');
     table.timestamps(true, true);
   })
 };
