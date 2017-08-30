@@ -6,19 +6,19 @@ const assert = require('chai').assert;
 const { suite, test } = require('mocha');
 const knex = require('../knex');
 const { addDatabaseHooks } = require('./utils');
-suite('apartments_groups migrations', addDatabaseHooks(() => {
-  test('apartments_groups columns', (done) => {
-    knex('apartments_groups').columnInfo()
+suite('profiles_groups migrations', addDatabaseHooks(() => {
+  test('profiles_groups columns', (done) => {
+    knex('profiles_groups').columnInfo()
     .then((actual) => {
       const expected = {
         group_id: {
           type: 'integer',
           maxLength: null,
           nullable: false,
-          defaultValue: 'nextval(\'apartments_groups_apartments_group_id_seq\'::regclass)'
+          defaultValue: 'nextval(\'profiles_groups_profiles_group_id_seq\'::regclass)'
         },
 
-        apartment_id: {
+        profile_id: {
           type: 'integer',
           maxLength: null,
           nullable: false,

@@ -4,7 +4,6 @@ exports.up = function(knex) {
     table.increments('apartments_groups_id').primary();
     table.integer('apartment_id').references('apartments.apartment_id').notNullable().onDelete('CASCADE');
     table.integer('group_id').references('groups.group_id').notNullable().onDelete('CASCADE');
-    table.integer('profile_id').references('profiles.profile_id').notNullable().onDelete('CASCADE');
     table.timestamps(true, true);
   })
 };
