@@ -3,25 +3,25 @@
 const knex = require('../../knex.js');
 const { decamelizeKeys, camelizeKeys } = require('humps');
 
-class Profiles {
-  getProfile() {
-    return knex('profiles')
-      .orderBy('profile_id')
+class Groups {
+  getGroup() {
+    return knex('groups')
+      .orderBy('group_id')
       .then((result) => camelizeKeys(result));
   }
 
-  getProfileById(user_id) {
-    return knex('profiles')
-      .where('user_id', user_id)
+  getGroupById(group_id) {
+    return knex('groups')
+      .where('group_id', group_id)
       .first()
       .then((result) => {
         return camelizeKeys(result);
       });
   }
 
-  addProfile(profile) {
-    return knex('profiles')
-      .insert(profile,'*')
+  addGroup(group) {
+    return knex('groups')
+      .insert(group,'*')
       .then((result) => {
         return camelizeKeys(result)
       });
@@ -41,10 +41,10 @@ class Profiles {
 //       });
 //   }
 //
-  deleteProfile(profile_id) {
-    return knex('profiles')
+  deleteGroup(group_id) {
+    return knex('groups')
       .del()
-      .where('profile_id', profile_id)
+      .where('group_id', group_id)
       .returning('*')
       .then((result) => {
         return camelizeKeys(result)
@@ -71,4 +71,4 @@ class Profiles {
 //   }
 }
 
-module.exports = Profiles;
+module.exports = Groups;

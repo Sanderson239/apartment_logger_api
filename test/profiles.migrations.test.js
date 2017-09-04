@@ -32,6 +32,13 @@ suite('profiles migrations', addDatabaseHooks(() => {
           defaultValue: null
         },
 
+        user_id: {
+          type: 'integer',
+          maxLength: null,
+          nullable: true,
+          defaultValue: null
+        },
+
         description: {
           type: 'character varying',
           maxLength: 255,

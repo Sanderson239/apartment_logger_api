@@ -183,17 +183,16 @@ suite('apartments routes', addDatabaseHooks(() => {
       updatedAt: '2017-05-14T12:23:00.000Z',
     }], done);
   });
-  //
-  // test('GET /apartment/:id that doesn\'t exist', (done) => {
-  //   /* eslint-disable max-len */
-  //   request(server)
-  //     .get('/apartment/1000')
-  //     .set('Accept', 'application/json')
-  //     .expect('Content-Type', /plain/)
-  //     .expect(404, 'Not Found', done);
-  // });
-  //
-  //
+
+  test('GET /apartment/:id that doesn\'t exist', (done) => {
+    request(server)
+      .get('/apartment/1000')
+      .set('Accept', 'application/json')
+      .expect('Content-Type', /plain/)
+      .expect(404, 'Not Found', done);
+  });
+
+
   test('POST /apartments/:id', (done) => {
     request(server)
       .post('/apartments/1')
@@ -243,24 +242,4 @@ suite('apartments routes', addDatabaseHooks(() => {
   }, done);
       /* eslint-enable max-len */
   });
-  //
-  // test('POST /apartment/:id without name', (done) => {
-  //   request(server)
-  //     .post('/apartment/2')
-  //     .set('Accept', 'application/json')
-  //     .send({
-  //       producer_id: 2,
-  //       // name: 'Ethiopia Bulga',
-  //       flavor_profile: 'Cotton Candy, Strawberry, Sugar, Tangerine',
-  //       varieties: 'Heirloom',
-  //       description: 'delicious',
-  //     })
-  //   .expect('Content-Type', /plain/)
-  //   .expect(400, 'Apartment name required', done);
-  //     /* eslint-enable max-len */
-  // });
-  //
-
-  /* eslint-enable max-len */
-
 }));
