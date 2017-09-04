@@ -79,7 +79,7 @@ suite('apartment migrations', addDatabaseHooks(() => {
           landlord_id: {
             type: 'integer',
             maxLength: null,
-            nullable: false,
+            nullable: true,
             defaultValue: null
           },
 
