@@ -10,9 +10,9 @@ class Groups {
       .then((result) => camelizeKeys(result));
   }
 
-  getGroupById(group_id) {
+  getGroupById(user_id) {
     return knex('groups')
-      .where('group_id', group_id)
+      .where('user_id', user_id)
       .first()
       .then((result) => {
         return camelizeKeys(result);

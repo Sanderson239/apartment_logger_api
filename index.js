@@ -21,6 +21,7 @@ const apartments = require('./src/routes/apartments');
 const landlords = require('./src/routes/landlords');
 const profiles = require('./src/routes/profiles');
 const groups = require('./src/routes/groups');
+const apartments_groups = require('./src/routes/apartments_groups')
 
 
 
@@ -28,6 +29,7 @@ app.use(apartments);
 app.use(landlords);
 app.use(profiles);
 app.use(groups);
+app.use(apartments_groups);
 
 
 app.use((req, res) => {
