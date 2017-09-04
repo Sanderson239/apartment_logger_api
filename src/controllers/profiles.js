@@ -10,9 +10,9 @@ class Profiles {
       .then((result) => camelizeKeys(result));
   }
 
-  getProfileById(profile_id) {
+  getProfileById(user_id) {
     return knex('profiles')
-      .where('profile_id', profile_id)
+      .where('user_id', user_id)
       .first()
       .then((result) => {
         return camelizeKeys(result);

@@ -17,6 +17,7 @@ suite('groups routes', addDatabaseHooks(() => {
       .expect(200, [
         {
           groupId: 1,
+          userId: 1,
           createdAt: '2016-06-29T14:26:16.000Z',
           updatedAt: '2016-06-29T14:26:16.000Z'
         }
@@ -32,6 +33,7 @@ suite('groups routes', addDatabaseHooks(() => {
       .expect('Content-Type', /json/)
       .expect(200, {
         groupId: 1,
+        userId: 1,
         createdAt: '2016-06-29T14:26:16.000Z',
         updatedAt: '2016-06-29T14:26:16.000Z'
       }, done);
@@ -43,6 +45,7 @@ suite('groups routes', addDatabaseHooks(() => {
       .set('Accept', 'application/json')
       .send({
         group_id: 2,
+        user_id:1,
         created_at: new Date('2016-06-29 14:26:16 UTC'),
         updated_at: new Date('2016-06-29 14:26:16 UTC')
       })
@@ -53,6 +56,7 @@ suite('groups routes', addDatabaseHooks(() => {
     })
     .expect(200, {
       groupId: 2,
+      userId:1,
     }, done);
   });
 
@@ -63,6 +67,7 @@ suite('groups routes', addDatabaseHooks(() => {
       .expect('Content-Type', /json/)
       .expect(200, [{
         groupId: 1,
+        userId: 1,
         createdAt: '2016-06-29T14:26:16.000Z',
         updatedAt: '2016-06-29T14:26:16.000Z',
       }], done);

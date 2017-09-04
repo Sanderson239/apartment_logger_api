@@ -17,6 +17,7 @@ suite('profiles routes', addDatabaseHooks(() => {
       .expect(200, [{
         profileId: 1,
         userId: 1,
+        groupId: 1,
         profileDisplayName: 'Rowling Display Name',
         description: 'I am a good roommate',
         cleanliness: 'very clean',
@@ -57,6 +58,7 @@ suite('profiles routes', addDatabaseHooks(() => {
       .expect(200, {
         profileId: 1,
         userId: 1,
+        groupId: 1,
         profileDisplayName: 'Rowling Display Name',
         description: 'I am a good roommate',
         cleanliness: 'very clean',
@@ -94,6 +96,7 @@ suite('profiles routes', addDatabaseHooks(() => {
       .send({
         profile_id: 2,
         user_id: 1,
+        group_id: null,
         profile_display_name: 'Rowling Display Name',
         description: 'I am a great roommate',
         cleanliness: 'very clean',
@@ -130,6 +133,7 @@ suite('profiles routes', addDatabaseHooks(() => {
     .expect(200, {
       profileId: 2,
       userId: 1,
+      groupId: null,
       profileDisplayName: 'Rowling Display Name',
       description: 'I am a great roommate',
       cleanliness: 'very clean',
@@ -167,6 +171,7 @@ suite('profiles routes', addDatabaseHooks(() => {
       .expect(200, [{
         profileId: 1,
         userId: 1,
+        groupId: 1,
         profileDisplayName: 'Rowling Display Name',
         description: 'I am a good roommate',
         cleanliness: 'very clean',

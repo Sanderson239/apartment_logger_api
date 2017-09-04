@@ -18,6 +18,13 @@ suite('groups migrations', addDatabaseHooks(() => {
           defaultValue: 'nextval(\'groups_group_id_seq\'::regclass)'
         },
 
+        user_id: {
+          type: 'integer',
+          maxLength: null,
+          nullable: false,
+          defaultValue: null
+        },
+
         created_at: {
           type: 'timestamp with time zone',
           maxLength: null,

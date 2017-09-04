@@ -22,8 +22,8 @@ router.get('/groups', (req, res) => {
 });
 
 router.get('/groups/:id', (req, res) => {
-  const id = req.params.id;
-  groups.getGroupById(id)
+  const user_id = req.params.id;
+  groups.getGroupById(user_id)
     .then(group => {
       if (!group || group.length === 0) {
          res.sendStatus(404);

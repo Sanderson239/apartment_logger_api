@@ -1,8 +1,10 @@
 exports.up = function(knex, Promise) {
+  //should have group id
   return knex.schema.createTable('profiles', (table) => {
     table.increments('profile_id').primary();
     table.string('profile_display_name').notNullable().defaultTo('');
     table.integer('user_id').notNullable().references('users.user_id').onDelete('cascade');
+    table.integer('group_id').references('groups.group_id').onDelete('cascade');
     table.string('description').notNullable().defaultTo('');
     table.string('cleanliness').notNullable().defaultTo('');
     table.string('guests').notNullable().defaultTo('');
