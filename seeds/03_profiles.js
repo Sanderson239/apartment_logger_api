@@ -7,7 +7,7 @@ exports.seed = function(knex, Promise) {
       return knex('profiles').insert([{
         profile_id: 1,
         user_id: 1,
-        group_id: 1,
+        group_id: null,
         profile_display_name: 'Rowling Display Name',
         description: 'I am a good roommate',
         cleanliness: 'very clean',

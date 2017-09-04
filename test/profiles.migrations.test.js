@@ -32,7 +32,7 @@ suite('profiles migrations', addDatabaseHooks(() => {
           defaultValue: null
         },
 
-        user_id: {
+        group_id: {
           type: 'integer',
           maxLength: null,
           nullable: true,
