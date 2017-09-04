@@ -18,6 +18,13 @@ suite('apartments_groups migrations', addDatabaseHooks(() => {
           defaultValue: 'nextval(\'apartments_groups_apartments_group_id_seq\'::regclass)'
         },
 
+        user_id: {
+          type: 'integer',
+          maxLength: null,
+          nullable: false,
+          defaultValue: null
+        },
+
         apartment_id: {
           type: 'integer',
           maxLength: null,
