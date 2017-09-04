@@ -59,6 +59,24 @@ suite('apartments_groups routes', addDatabaseHooks(() => {
         }
         ], done);
     });
+
+    test('POST /apartments_groups', (done) => {
+      request(server)
+        .post('/apartments_groups')
+        .set('Accept', 'application/json')
+        .send({apartments_groups_id: 2, user_id: 1, apartment_id: 1, group_id: 1, })
+        .expect('Content-Type', /json/)
+        .expect((res) => {
+          delete res.body.createdAt;
+          delete res.body.updatedAt;
+        })
+        .expect(200, {
+          apartmentsGroupsId: 2,
+          userId: 1,
+          apartmentId: 1,
+          groupId: 1,}, done);
+    });
+
 }));
 
     // test('POST /apartments_groups', (done) => {

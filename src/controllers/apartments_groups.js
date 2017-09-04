@@ -4,7 +4,7 @@ const knex = require('../../knex.js');
 const { decamelizeKeys, camelizeKeys } = require('humps');
 
 class Apartments_groups {
-  getAllFavoritesByUserId(group_id) {
+  getAllapartmentGroupsByUserId(group_id) {
     return knex('apartments_groups')
       .select('*')
       .innerJoin('apartments','apartments.apartment_id','apartments_groups.apartment_id')
@@ -12,6 +12,17 @@ class Apartments_groups {
       .then((result) => camelizeKeys(result))
       .catch((err) => {
         console.error();
+    });
+  }
+
+  addApartmentsGroups(newApartmentsGroups) {
+    return knex('apartments_groups')
+      .insert(newApartmentsGroups,'*')
+      .then((result) => {
+        return camelizeKeys(result)
+      })
+      .catch((err) => {
+        console.error(err);
     });
   }
 }
