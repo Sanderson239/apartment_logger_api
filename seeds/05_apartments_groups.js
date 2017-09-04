@@ -7,6 +7,7 @@ exports.seed = function(knex, Promise) {
       return knex('apartments_groups').insert([
         {
           apartments_groups_id: 1,
+          user_id: 1,
           apartment_id: 2,
           group_id: 1,
           created_at: new Date('2016-06-29 14:26:16 UTC'),

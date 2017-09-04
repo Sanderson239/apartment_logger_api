@@ -1,5 +1,4 @@
 exports.up = function(knex, Promise) {
-  //should have group id
   return knex.schema.createTable('profiles', (table) => {
     table.increments('profile_id').primary();
     table.string('profile_display_name').notNullable().defaultTo('');
