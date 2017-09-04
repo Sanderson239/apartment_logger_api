@@ -25,6 +25,19 @@ class Apartments_groups {
         console.error(err);
     });
   }
+
+  deleteApartmentsGroups(apartments_groups_id) {
+    return knex('apartments_groups')
+    .del()
+    .where('apartments_groups_id', apartments_groups_id)
+    .returning('*')
+    .then((result) => {
+        return camelizeKeys(result)
+      })
+      .catch((err) => {
+        console.error(err);
+    });
+  }
 }
 
 module.exports = Apartments_groups;

@@ -47,4 +47,16 @@ router.get('/apartments_groups/:id', (req,res) => {
     });
 });
 
+router.delete('/apartments_groups/:id', (req,res) => {
+  let apartments_groups_id = req.params.id;
+
+  apartments_groups.deleteApartmentsGroups(apartments_groups_id)
+    .then(partments_groups => {
+      res.send(partments_groups);
+    })
+    .catch(err => {
+      res.status(500).send(err);
+    });
+  });
+
   module.exports = router;

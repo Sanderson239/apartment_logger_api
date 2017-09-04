@@ -77,8 +77,21 @@ suite('apartments_groups routes', addDatabaseHooks(() => {
           groupId: 1,}, done);
     });
 
+    test('DELETE /apartments_groups/:id', (done) => {
+    agent
+      .del('/apartments_groups/1')
+      .set('Accept', 'application/json')
+      .expect('Content-Type', /json/)
+      .expect(200, [{
+        apartmentsGroupsId: 1,
+        userId: 1,
+        apartmentId: 2,
+        groupId: 1,
+        createdAt: '2016-06-29T14:26:16.000Z',
+        updatedAt: '2016-06-29T14:26:16.000Z'
+      }], done);
+    });
 }));
-
     // test('POST /apartments_groups', (done) => {
     //   agent
     //     .post('/apartments_groups')
