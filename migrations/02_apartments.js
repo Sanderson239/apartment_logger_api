@@ -12,7 +12,7 @@ exports.up = function(knex, Promise) {
     table.string('latitude').notNullable().defaultTo('');
     table.string('longitude').notNullable().defaultTo('');
     //on user submition of apt input, if landlord already exists, add id here, if doesn't exite creates new landlord and adds corresponding id here
-    table.integer('landlord_id').notNullable().references('landlords.landlord_id').onDelete('cascade');
+    table.integer('landlord_id').references('landlords.landlord_id').onDelete('cascade');
     table.integer('sqr_footage').notNullable().defaultTo(0);
     table.integer('bedrooms').notNullable().defaultTo(0);
     table.integer('bathrooms').notNullable().defaultTo(0);
