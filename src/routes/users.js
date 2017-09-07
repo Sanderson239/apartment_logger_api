@@ -102,7 +102,7 @@ router.get('/users/:id', (req, res) => {
 });
 
 const REQUIRED_FIELDS = {
-  user_email: 'Email',
+  userEmail: 'Email',
   firstName: 'First name',
   lastName: 'Last name',
   password: 'Password',
@@ -209,7 +209,7 @@ router.post('/users', (req, res) => {
  *    HTTP/1.1 500 Internal Server Error
  */
 router.post('/users/:id', (req, res) => {
-  const fieldsToUpdate = ['firstName', 'lastName', 'user_email'];
+  const fieldsToUpdate = ['firstName', 'lastName', 'userEmail'];
   const updatedFields = {};
   fieldsToUpdate.forEach( field => {
     if (req.body[field]) {

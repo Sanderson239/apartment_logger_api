@@ -21,7 +21,7 @@ suite('users routes', addDatabaseHooks(() => {
         firstName: 'Joe',
         lastName: 'Trader',
         username: 'traderjoe',
-        user_email: 'joetrader@example.com',
+        userEmail: 'joetrader@example.com',
         password
       })
       .expect((res) => {
