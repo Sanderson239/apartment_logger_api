@@ -6,13 +6,13 @@ const assert = require('chai').assert;
 const { suite, test } = require('mocha');
 const knex = require('../knex');
 const { addDatabaseHooks } = require('./utils')
-suite('part1 seeds', addDatabaseHooks(() => {
+suite('apartment seeds', addDatabaseHooks(() => {
   test('apartments rows', (done) => {
-    knex('apartments').orderBy('id', 'ASC')
+    knex('apartments').orderBy('apartment_id', 'ASC')
       .then((actual) => {
         const expected = [{
-        id: 1,
-        name: 'home',
+        apartment_id: 1,
+        apartment_name: 'home',
         street: 'fsdafa',
         city: 'SF',
         state: 'CA',
@@ -20,18 +20,18 @@ suite('part1 seeds', addDatabaseHooks(() => {
         zip: '1321',
         latitude: '32132',
         longitude: '3213',
-        // landlord_id: 1,
+        landlord_id: 1,
         sqr_footage: 12321,
         bedrooms: 3213,
         bathrooms:986546,
         beds: 32132,
-        description: 'great place to live',
+        apartment_description: 'great place to live',
         apt_url: 'something.com',
         created_at: new Date('2017-05-14 12:23:00 UTC'),
         updated_at: new Date('2017-05-14 12:23:00 UTC'),
       }, {
-      id: 2,
-      name: 'home',
+      apartment_id: 2,
+      apartment_name: 'home',
       street: 'fsdafa',
       city: 'SF',
       state: 'CA',
@@ -39,18 +39,18 @@ suite('part1 seeds', addDatabaseHooks(() => {
       zip: '1321',
       latitude: '32132',
       longitude: '3213',
-      // landlord_id: 2,
+      landlord_id: 2,
       sqr_footage: 12321,
       bedrooms: 3213,
       bathrooms:986546,
       beds: 32132,
-      description: 'great place to live',
+      apartment_description: 'great place to live',
       apt_url: 'something.com',
       created_at: new Date('2017-05-14 12:23:00 UTC'),
       updated_at: new Date('2017-05-14 12:23:00 UTC'),
     }, {
-    id: 3,
-    name: 'home',
+    apartment_id: 3,
+    apartment_name: 'home',
     street: 'fsdafa',
     city: 'SF',
     state: 'CA',
@@ -58,12 +58,12 @@ suite('part1 seeds', addDatabaseHooks(() => {
     zip: '1321',
     latitude: '32132',
     longitude: '3213',
-    // landlord_id: 1,
+    landlord_id: 1,
     sqr_footage: 12321,
     bedrooms: 3213,
     bathrooms:986546,
     beds: 32132,
-    description: 'great place to live',
+    apartment_description: 'great place to live',
     apt_url: 'something.com',
     created_at: new Date('2017-05-14 12:23:00 UTC'),
     updated_at: new Date('2017-05-14 12:23:00 UTC'),
@@ -74,7 +74,7 @@ suite('part1 seeds', addDatabaseHooks(() => {
           assert.deepEqual(
             actual[i],
             expected[i],
-            `Row id=${i + 1} not the same`
+            `Row apartment_id=${i + 1} not the same`
           );
         }
 
